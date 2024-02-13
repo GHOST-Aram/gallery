@@ -13,7 +13,7 @@ export class HttpResponse{
 
     public respondWithCreatedResource = (resourceId: string, res: Response) =>{
         res.location(`/carts/${resourceId}`)
-        res.status(201).json({ message: 'Created'})
+        res.status(201).json('Created')
     }
 
     public respondWithFoundResource = (

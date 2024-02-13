@@ -9,7 +9,8 @@ export const routesWrapper = (controller: Controller) =>{
 
     router.post('/:id', controller.respondWithMethodNotAllowed)
     router.post('/', validateAllInput,
-        validator.handleValidationErrors
+        validator.handleValidationErrors,
+        controller.addNew
     )
     return router
 }
