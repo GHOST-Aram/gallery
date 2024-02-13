@@ -14,3 +14,5 @@ const controller = new Controller(dataAccess)
 const routes = routesWrapper(controller)
 
 app.use('/gallery', routes)
+
+export { app }
