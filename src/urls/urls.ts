@@ -5,6 +5,6 @@ const router = Router()
 
 export const routesWrapper = (controller: Controller) =>{
 
-
+    router.post('/:id', controller.respondWithMethodNotAllowed)
     return router
 }
