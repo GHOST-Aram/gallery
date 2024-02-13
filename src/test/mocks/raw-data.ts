@@ -11,3 +11,7 @@ export const postData: Gallery = {
     exterior3: 'https://unsplash.com/s/photos/apartment-building',
     exterior4: 'https://unsplash.com/s/photos/apartment-building',
 }
+
+export const badData = {
+
+}

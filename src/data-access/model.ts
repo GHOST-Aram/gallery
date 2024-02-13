@@ -19,7 +19,10 @@ const gallerySchema = new Schema<Gallery, GalleryModel>({
         type: String,
         required: true
     },
-    interior1: String,
+    interior1: {
+        type: String,
+        required: true
+    },
     interior2: String,
     interior3: String,
     interior4: String,
