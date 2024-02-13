@@ -21,4 +21,13 @@ describe('Gallery GET Route', () => {
             assert.respondsWithNotFound(response)
         }
     )
+
+    test('Responds with found resource, status 200: GET success', 
+        async() => {
+            const response = await request(app).get('/gallery/64c9e4f2df7cc072af2ac9e4')
+
+            assert.respondsWithSuccess(response)
+            assert.respondsWithFoundResource(response)
+        }
+    )
 })
