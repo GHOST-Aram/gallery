@@ -1,6 +1,7 @@
 import { HydratedDocument, Model, Schema, model } from "mongoose"
 
 export interface Gallery{
+    assetId: string,
     interior1: string
     interior2: string
     interior3: string
@@ -14,6 +15,10 @@ export interface Gallery{
 export type GalleryModel = Model<Gallery>
 
 const gallerySchema = new Schema<Gallery, GalleryModel>({
+    assetId: { 
+        type: String,
+        required: true
+    },
     interior1: String,
     interior2: String,
     interior3: String,
