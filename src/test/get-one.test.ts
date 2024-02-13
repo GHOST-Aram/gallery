@@ -5,8 +5,9 @@ import request from "supertest"
 import { galleryProperties } from "./mocks/raw-data";
 
 describe('Gallery GET Route', () => {
+    //Get by assetId
 
-    test('Responds with validation errors, status 400: Invalid reference id', 
+    test('Responds with validation errors, status 400: Invalid assetId id', 
         async() => {
             const response = await request(app).get('/gallery/jjjthew843')
 
@@ -25,7 +26,7 @@ describe('Gallery GET Route', () => {
 
     test('Responds with found resource, status 200: GET success', 
         async() => {
-            const response = await request(app).get('/gallery/64c9e4f2df7cc072af2ac9e4')
+            const response = await request(app).get('/gallery/64c9e4f2df7cc072af2ac9e0')
 
             assert.respondsWithSuccess(response)
             assert.respondsWithFoundResource(response)
@@ -34,7 +35,7 @@ describe('Gallery GET Route', () => {
 
     test('Responds with all expected data properties', 
         async() =>{
-            const response = await request(app).get('/gallery/64c9e4f2df7cc072af2ac9e4')
+            const response = await request(app).get('/gallery/64c9e4f2df7cc072af2ac9e0')
             const document  = response.body
 
             galleryProperties.forEach( (property: string) => {
