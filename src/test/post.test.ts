@@ -13,6 +13,15 @@ describe('Gallery POST', () => {
         }
     )
 
+    test('Responds with conflict, status 409: Gallery exists with the provided AssetId',
+        async() =>{
+            const response = await request(app).post('/gallery')
+                .send({...postData, assetId: '64c9e4f2df7cc072af2ac9e0'})
+
+            assert.respondsWithConflict(response)
+        }
+    )
+
     test('Responds with validation errors, status 400: Invalid Input', 
     
         async() =>{
