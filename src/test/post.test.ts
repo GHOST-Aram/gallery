@@ -1,7 +1,7 @@
 import { describe, test } from "@jest/globals";
 import request from "supertest"
 import { app } from "./config/test.config";
-import { postData } from "./mocks/raw-data";
+import { badData, postData } from "./mocks/raw-data";
 import { assert } from "../z-library/testing/response-assertion";
 import { response } from "express";
 
@@ -13,4 +13,16 @@ describe('Gallery POST', () => {
             assert.respondsWithMethodNotAllowed(response)
         }
     )
+
+    test('Responds with validation errors, status 400: Invalid Input', 
+    
+        async() =>{
+            const response = await request(app).post('/gallery')
+            .send( badData )
+
+            assert.respondsWithBadRequest(response)
+            assert.respondsWithValidationErrors(response)
+        }
+    )
+
 })

@@ -13,5 +13,8 @@ export const postData: Gallery = {
 }
 
 export const badData = {
-
+    assetId: '64c9e4f2df7cc0',
+    interior2: 'https://unsplash.com/s/photos/apartment-building',
+    interior3: 'https://unsplash.com/s/photos/apartment-building',
+    exterior1: 4354354
 }
