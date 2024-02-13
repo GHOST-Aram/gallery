@@ -47,8 +47,8 @@ export class ResponseAssertion{
     }
 
     public respondsWithFoundResource = (response: Response) =>{
-        expect(response.body).toHaveProperty('resource')
-        expect(response.body.resource).toHaveProperty('_id')
+        expect(typeof response.body).toMatch(/object/i)
+        expect(response.body).toHaveProperty('_id')
     }
 
     public respondsWithEmptyResourceArray = (response: Response) =>{

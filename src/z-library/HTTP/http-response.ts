@@ -20,7 +20,7 @@ export class HttpResponse{
         resource: HydratedDocument<any>[]| HydratedDocument<any>, 
         res: Response
         ) =>{
-            res.status(200).json({ resource })
+            res.status(200).json(resource)
     }
 
     public paginate = (req: Request): Paginator =>{
