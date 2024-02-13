@@ -4,7 +4,7 @@ import { assert } from "../z-library/testing/response-assertion";
 import request from "supertest"
 import { galleryProperties } from "./mocks/raw-data";
 
-describe('Gallery GET Route', () => {
+describe('GET One Gallery', () => {
     //Get by assetId
 
     test('Responds with validation errors, status 400: Invalid assetId id', 
