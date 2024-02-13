@@ -6,7 +6,7 @@ import { Accessible } from "./accessible";
 export class GenericController <T extends Accessible> 
     extends HttpResponse implements Controllable {
 
-    private dataAccess: T
+    public dataAccess: T
 
     constructor(dataAccess: T){
         super()
