@@ -3,7 +3,6 @@ import request from "supertest"
 import { app } from "./config/test.config";
 import { badData, postData } from "./mocks/raw-data";
 import { assert } from "../z-library/testing/response-assertion";
-import { response } from "express";
 
 describe('Gallery POST', () => {
     test('Responds with method not allowed, status 405: Reject batch post request' ,
@@ -22,6 +21,15 @@ describe('Gallery POST', () => {
 
             assert.respondsWithBadRequest(response)
             assert.respondsWithValidationErrors(response)
+        }
+    )
+
+    test('Responds with Created resource, status 201: POST request success', 
+        async() => {
+            const response = await request(app).post('/gallery')
+            .send( postData )
+
+            assert.respondsWithCreatedResource(response)
         }
     )
 
