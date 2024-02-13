@@ -2,6 +2,7 @@ import { describe } from "@jest/globals";
 import { app } from "./config/test.config";
 import { assert } from "../z-library/testing/response-assertion";
 import request from "supertest"
+import { galleryProperties } from "./mocks/raw-data";
 
 describe('Gallery GET Route', () => {
 
@@ -28,6 +29,17 @@ describe('Gallery GET Route', () => {
 
             assert.respondsWithSuccess(response)
             assert.respondsWithFoundResource(response)
+        }
+    )
+
+    test('Responds with all expected data properties', 
+        async() =>{
+            const response = await request(app).get('/gallery/64c9e4f2df7cc072af2ac9e4')
+            const document  = response.body
+
+            galleryProperties.forEach( (property: string) => {
+                expect(document).toHaveProperty(property)
+            })
         }
     )
 })

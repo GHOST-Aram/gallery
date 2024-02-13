@@ -18,3 +18,15 @@ export const badData = {
     interior3: 'https://unsplash.com/s/photos/apartment-building',
     exterior1: 4354354
 }
+
+export const galleryProperties = [
+    'assetId',
+    'interior1',
+    'interior2',
+    'interior3',
+    'interior4',
+    'exterior1',
+    'exterior2',
+    'exterior3',
+    'exterior4',
+]
