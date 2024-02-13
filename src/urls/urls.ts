@@ -13,8 +13,8 @@ export const routesWrapper = (controller: Controller) =>{
         controller.addNew
     )
 
-    router.get('/:id', 
-        validator.validateReferenceId('id', { required: true }),
+    router.get('/:assetId', 
+        validator.validateReferenceId('assetId', { required: true }),
         validator.handleValidationErrors,
         controller.getOne
     )

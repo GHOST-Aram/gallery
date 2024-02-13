@@ -23,5 +23,21 @@ export class Controller extends GenericController<DataAccess>{
             next(error)
         }   
     }
+
+    public getOne = async(req: Request, res: Response, next: NextFunction) =>{
+        const assetId = req.params.assetId
+
+        try {
+            const foundDocument = await this.dataAccess.findByAssetId(assetId)
+
+            if(foundDocument){
+                this.respondWithFoundResource(foundDocument, res)
+            } else{
+                this.respondWithNotFound(res)
+            }
+        } catch (error) {
+            next(error)
+        }
+    }
 }
 
