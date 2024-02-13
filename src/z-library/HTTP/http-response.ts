@@ -41,7 +41,7 @@ export class HttpResponse{
     }
 
     public respondWithNotFound = (res: Response) =>{
-        res.status(404).json({ message: 'Resource not Found'})
+        res.status(404).json('Not Found')
     }
 
     public respondWithModifiedResource = (resourceId: string, res: Response) =>{

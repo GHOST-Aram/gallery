@@ -43,7 +43,7 @@ export class ResponseAssertion{
     public respondsWithNotFound = (response: Response) =>{
         expect(response.status).toEqual(404)
         expect(response.headers['content-type']).toMatch(/json/)
-        expect(response.body.message).toMatch(/not found/i)
+        expect(response.body).toMatch(/not found/i)
     }
 
     public respondsWithFoundResource = (response: Response) =>{
