@@ -31,6 +31,7 @@ export const routesWrapper = (controller: Controller) =>{
     router.patch('/:assetId', validator.validateReferenceId('assetId', { required: true}),
         validatePatchInput,
         validator.handleValidationErrors,
+        controller.modifyOne
     )
 
     return router

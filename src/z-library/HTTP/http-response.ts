@@ -46,7 +46,7 @@ export class HttpResponse{
 
     public respondWithModifiedResource = (resourceId: string, res: Response) =>{
         res.location(`/carts/${resourceId}`)
-        res.status(200).json({ message: 'Modified' })
+        res.status(200).json( 'Modified' )
     } 
 
     public respondWithUpdatedResource = (resourceId: string, res: Response) =>{

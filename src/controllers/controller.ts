@@ -59,5 +59,25 @@ export class Controller extends GenericController<DataAccess>{
             next(error)
         }
     }
+
+    public modifyOne = async(req: Request, res: Response, next: NextFunction) =>{
+        const assetId = req.params.assetId
+        const updateDoc = req.body
+
+        try {
+            const modifiedDoc = await this.dataAccess.findByIdAndUpdate(assetId, 
+                updateDoc)
+
+            if(modifiedDoc){
+                this.respondWithModifiedResource(modifiedDoc.id, res)
+            } else{
+            //   this.respondWithNotFound(res)
+            }
+
+        } catch (error) {
+            next(error)
+        }
+    }
+
 }
 
