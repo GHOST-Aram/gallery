@@ -29,4 +29,12 @@ describe('DELETE Gallery', () => {
             assert.respondsWithDeletedResource(response)
         }
     )
+
+    test('Responds with Not Found, status 404: Target does not exist', 
+        async() => {
+            const response = await request(app).delete('/gallery/64c9e4f2df7cc072af2ac9e8')
+
+            assert.respondsWithNotFound(response)
+        }
+    )
 })
