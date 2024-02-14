@@ -12,7 +12,7 @@ export class ResponseAssertion{
     public respondsWithConflict = (response: Response) =>{
         expect(response.status).toEqual(409)
         expect(response.headers['content-type']).toMatch(/json/)
-        expect(response.body.message).toMatch(/exists/)
+        expect(response.body).toMatch(/exists/)
     }
     
     public respondsWithBadRequest = (response: Response) =>{
