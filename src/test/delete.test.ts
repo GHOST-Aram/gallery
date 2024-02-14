@@ -20,4 +20,13 @@ describe('DELETE Gallery', () => {
             assert.respondsWithValidationErrors(response)
         }
     )
+
+    test('Responds with the deleted resource, status 200: Delete success',
+        async() =>{
+            const response = await request(app).delete('/gallery/64c9e4f2df7cc072af2ac9e4')
+
+            assert.respondsWithSuccess(response)
+            assert.respondsWithDeletedResource(response)
+        }
+    )
 })
