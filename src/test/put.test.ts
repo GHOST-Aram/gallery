@@ -42,4 +42,14 @@ describe('Gallery PUT Requests', () => {
             assert.respondsWithCreatedResource(response)
         }
     )
+
+    test('Responds with updated resource, status 200: Update success', 
+        async() =>{
+            const response = await request(app).put('/gallery/64c9e4f2df7cc072af2ac9e4')
+                .send(postData)
+
+            assert.respondsWithSuccess(response)
+            assert.respondsWithUpdatedResource(response)
+        }
+    )
 })

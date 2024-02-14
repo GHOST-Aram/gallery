@@ -49,7 +49,7 @@ export class Controller extends GenericController<DataAccess>{
                 updateDoc)
 
             if(updatedDoc){
-                this.respondWithUpdatedResource(updatedDoc.id, res)
+                // this.respondWithUpdatedResource(updatedDoc.id, res)
             } else{
                 const newDoc = await this.dataAccess.createNew(updateDoc)
                 this.respondWithCreatedResource(newDoc.id, res)
