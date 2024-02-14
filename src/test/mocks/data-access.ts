@@ -28,9 +28,9 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
         return generateFakeDocs(paginator.limit)
     })
 
-    public findByAssetIdAndUpdate = jest.fn(async(assetId: string, updateDoc: Gallery): Promise<HydratedGalleryDoc | null> =>{
+    public findByIdAndUpdate = jest.fn(async(assetId: string, updateDoc: Gallery): Promise<HydratedGalleryDoc | null> =>{
         if(assetId === '64c9e4f2df7cc072af2ac9e4' )
-            return new Gallery(postData)
+            return new Gallery(updateDoc)
         return null
     })
 }

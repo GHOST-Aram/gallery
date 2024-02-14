@@ -45,7 +45,7 @@ export class Controller extends GenericController<DataAccess>{
         const updateDoc = req.body
 
         try {
-            const updatedDoc = await this.dataAccess.findByAssetIdAndUpdate(assetId, 
+            const updatedDoc = await this.dataAccess.findByIdAndUpdate(assetId, 
                 updateDoc)
 
             if(updatedDoc){
