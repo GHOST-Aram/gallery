@@ -27,5 +27,7 @@ export const routesWrapper = (controller: Controller) =>{
         controller.updateOne
     )
 
+    router.patch('/', controller.respondWithMethodNotAllowed)
+
     return router
 }
