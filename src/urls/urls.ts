@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { Controller } from "../controllers/controller"
-import { validateAllInput } from "./inputValidators"
+import { validatePatchInput, validatePostInput } from "./inputValidators"
 import { validator } from "../z-library/validation/validator"
 
 const router = Router()
@@ -8,7 +8,7 @@ const router = Router()
 export const routesWrapper = (controller: Controller) =>{
 
     router.post('/:id', controller.respondWithMethodNotAllowed)
-    router.post('/', validateAllInput,
+    router.post('/', validatePostInput,
         validator.handleValidationErrors,
         controller.addNew
     )
@@ -22,13 +22,14 @@ export const routesWrapper = (controller: Controller) =>{
 
     router.put('/', controller.respondWithMethodNotAllowed)
     router.put('/:assetId', validator.validateReferenceId('assetId', { required: true}),
-        validateAllInput,
+        validatePostInput,
         validator.handleValidationErrors,
         controller.updateOne
     )
 
     router.patch('/', controller.respondWithMethodNotAllowed)
     router.patch('/:assetId', validator.validateReferenceId('assetId', { required: true}),
+        validatePatchInput,
         validator.handleValidationErrors,
     )
 
