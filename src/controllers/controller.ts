@@ -12,7 +12,7 @@ export class Controller extends GenericController<DataAccess>{
         const inputData:Gallery = req.body
 
         try {
-            const exisitingDoc = await this.dataAccess.findByAssetId(inputData.assetId)
+            const exisitingDoc = await this.dataAccess.findByReferenceId(inputData.assetId)
 
             if(exisitingDoc){
                 this.respondWithConflict(res)
@@ -28,7 +28,7 @@ export class Controller extends GenericController<DataAccess>{
         const assetId = req.params.assetId
 
         try {
-            const foundDocument = await this.dataAccess.findByAssetId(assetId)
+            const foundDocument = await this.dataAccess.findByReferenceId(assetId)
 
             if(foundDocument){
                 this.respondWithFoundResource(foundDocument, res)

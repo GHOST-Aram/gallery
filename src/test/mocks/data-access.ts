@@ -12,15 +12,9 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
     })
 
     public findByReferenceId =  jest.fn(async(refId: string): Promise<HydratedGalleryDoc| null> =>{
-        if(refId === '64c9e4f2df7cc072af2ac9e4')
+        if(refId === '64c9e4f2df7cc072af2ac9e0')
             return new Gallery(postData)
 
-        return null
-    })
-
-    public findByAssetId = jest.fn(async(assetId: string): Promise<HydratedGalleryDoc | null> =>{
-        if(assetId === '64c9e4f2df7cc072af2ac9e0')
-            return new Gallery(postData)
         return null
     })
 

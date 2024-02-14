@@ -6,7 +6,7 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
         super(model)
     }
 
-    public findByAssetId = async(assetId: string): Promise<HydratedGalleryDoc | null> =>{
+    public findByReferenceId = async(assetId: string): Promise<HydratedGalleryDoc | null> =>{
         return await this.model.findOne({ assetId })
     }
     public findByIdAndUpdate = async(assetId: string, updateDoc: Gallery): Promise<HydratedGalleryDoc | null> =>{
