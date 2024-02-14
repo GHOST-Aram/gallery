@@ -71,7 +71,7 @@ export class Controller extends GenericController<DataAccess>{
             if(modifiedDoc){
                 this.respondWithModifiedResource(modifiedDoc.id, res)
             } else{
-            //   this.respondWithNotFound(res)
+              this.respondWithNotFound(res)
             }
 
         } catch (error) {
