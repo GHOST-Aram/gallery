@@ -13,4 +13,14 @@ describe('Gallery PUT Requests', () => {
             assert.respondsWithMethodNotAllowed(response)
         }
     )
+
+    test('Responds with validation errors, status 400: Ivalid assetId', 
+        async() => {
+            const response = await request(app).put('/gallery/64c9e4f2df7cc0tgd')
+                .send(postData)
+
+            assert.respondsWithBadRequest(response)
+            assert.respondsWithValidationErrors(response)
+        }
+    )
 })
