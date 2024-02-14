@@ -27,6 +27,12 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
             return new Gallery(updateDoc)
         return null
     })
+
+    public findByIdAndDelete = jest.fn(async(assetId: string): Promise<HydratedGalleryDoc | null> =>{
+        if(assetId === '64c9e4f2df7cc072af2ac9e4' )
+            return new Gallery(postData)
+        return null
+    })
 }
 
 const generateFakeDocs = (limit: number): HydratedGalleryDoc[] =>{

@@ -12,4 +12,7 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
     public findByIdAndUpdate = async(assetId: string, updateDoc: Gallery): Promise<HydratedGalleryDoc | null> =>{
         return await this.model.findOneAndUpdate({ assetId }, updateDoc)
     }
+    public findByIdAndDelete = async(assetId: string): Promise<HydratedGalleryDoc | null> =>{
+        return await this.model.findOneAndDelete({ assetId })
+    }
 }

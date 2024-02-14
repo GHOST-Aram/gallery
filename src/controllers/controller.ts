@@ -79,5 +79,22 @@ export class Controller extends GenericController<DataAccess>{
         }
     }
 
+    public deleteOne = async(req: Request, res: Response, next: NextFunction) => {
+        const assetId = req.params.assetId
+
+        try {
+            const deletedDoc = await this.dataAccess.findByIdAndDelete(assetId)
+
+            if(deletedDoc){
+                this.respondWithDeletedResource(deletedDoc.id, res)
+            } else{
+            //   this.respondWithNotFound(res)
+            }
+
+        } catch (error) {
+            next(error)
+        }
+    }
+
 }
 

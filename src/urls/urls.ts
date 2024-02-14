@@ -37,6 +37,7 @@ export const routesWrapper = (controller: Controller) =>{
     router.delete('/', controller.respondWithMethodNotAllowed)
     router.delete('/:assetId', validator.validateReferenceId('assetId', { required: true}),
         validator.handleValidationErrors,
+        controller.deleteOne
     )
 
     return router
