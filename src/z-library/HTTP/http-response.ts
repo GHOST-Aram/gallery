@@ -4,7 +4,7 @@ import { HydratedDocument } from "mongoose"
 export class HttpResponse{
 
     public respondWithMethodNotAllowed = (req: Request, res: Response) =>{
-        res.status(405).json({ message: 'Method not allowed' })
+        res.status(405).json('Method not allowed' )
     }
 
     public respondWithConflict = (res: Response) =>{

@@ -20,5 +20,6 @@ export const routesWrapper = (controller: Controller) =>{
     )
 
     router.get('/', controller.getMany)
+    router.put('/', controller.respondWithMethodNotAllowed)
     return router
 }
