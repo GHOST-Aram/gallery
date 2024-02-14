@@ -56,12 +56,11 @@ export class ResponseAssertion{
         expect(response.body.resource.length).toEqual(0)
     }
 
-    public respondsWithPaginatedResource = (
-        response: Response, limit: number) =>{
+    public respondsWithPaginatedResource = ( response: Response, limit: number) =>{
+            const resource = response.body
 
-            expect(response.body).toHaveProperty('resource')
+            expect(resource[0]).toHaveProperty('_id')
 
-            const resource = response.body.resource
             expect(Array.isArray(resource)).toBeTruthy()
             expect(resource.length).toEqual(limit)
     }
