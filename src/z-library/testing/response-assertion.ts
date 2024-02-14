@@ -66,7 +66,7 @@ export class ResponseAssertion{
     }
 
     public respondsWithModifedResource = (response: Response) =>{
-        expect(response.body.message).toMatch(/modified/i)
+        expect(response.body).toMatch(/modified/i)
         expect(response.header.location).toMatch(
             /^\/[.\w]+\/[a-fA-F0-9]{24}$/)
     }

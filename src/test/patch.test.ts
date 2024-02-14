@@ -32,4 +32,14 @@ describe('Gallery PATCH route', () => {
             assert.respondsWithValidationErrors(response)
         }
     )
+
+    test('Responds with modified resource, status 200: Patch success',
+        async() =>{
+            const response = await request(app).patch('/gallery/64c9e4f2df7cc072af2ac9e4')
+                .send(patchData)
+
+            assert.respondsWithSuccess(response)
+            assert.respondsWithModifedResource(response)
+        }
+    )
 })
