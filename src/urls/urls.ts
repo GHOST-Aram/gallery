@@ -22,6 +22,7 @@ export const routesWrapper = (controller: Controller) =>{
 
     router.put('/', controller.respondWithMethodNotAllowed)
     router.put('/:assetId', validator.validateReferenceId('assetId', { required: true}),
+        validateAllInput,
         validator.handleValidationErrors
     )
 
