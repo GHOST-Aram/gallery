@@ -11,8 +11,7 @@ export class GenericDataAccess<T extends Model<any>, RawData> implements Accessi
         this.model = model
     }
     
-    public createNew = (data: RawData)
-        : Promise<HydratedDocument<RawData>> =>{
+    public createNew = (data: RawData): Promise<HydratedDocument<RawData>> =>{
         return this.model.create(data)
     }
 
