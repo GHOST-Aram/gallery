@@ -18,8 +18,12 @@ export const routesWrapper = (controller: Controller) =>{
         validator.handleValidationErrors,
         controller.getOne
     )
-
     router.get('/', controller.getMany)
+
     router.put('/', controller.respondWithMethodNotAllowed)
+    router.put('/:assetId', validator.validateReferenceId('assetId', { required: true}),
+        validator.handleValidationErrors
+    )
+
     return router
 }
