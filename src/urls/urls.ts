@@ -34,5 +34,7 @@ export const routesWrapper = (controller: Controller) =>{
         controller.modifyOne
     )
 
+    router.delete('/', controller.respondWithMethodNotAllowed)
+
     return router
 }
