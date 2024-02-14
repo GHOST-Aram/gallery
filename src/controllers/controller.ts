@@ -88,7 +88,7 @@ export class Controller extends GenericController<DataAccess>{
             if(deletedDoc){
                 this.respondWithDeletedResource(deletedDoc.id, res)
             } else{
-            //   this.respondWithNotFound(res)
+              this.respondWithNotFound(res)
             }
 
         } catch (error) {
