@@ -1,6 +1,7 @@
 import { GenericDataAccess } from "../../z-library/bases/generic-data-access";
 import { Gallery, GalleryModel, HydratedGalleryDoc } from "../../data-access/model";
 import { postData } from "./raw-data";
+import { Paginator } from "../../z-library/HTTP/http-response";
 
 export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
     constructor(model: GalleryModel){
@@ -22,4 +23,19 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
             return new Gallery(postData)
         return null
     })
+
+    public findWithPagination = jest.fn(async(paginator: Paginator): Promise<HydratedGalleryDoc[]> =>{
+        return generateFakeDocs(paginator.limit)
+    })
+}
+
+const generateFakeDocs = (limit: number): HydratedGalleryDoc[] =>{
+    const docs: HydratedGalleryDoc[] = []
+
+    while(limit > 0){
+        docs.push(new Gallery(postData))
+        limit --
+    }
+
+    return docs
 }

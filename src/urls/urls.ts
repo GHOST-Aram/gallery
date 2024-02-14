@@ -18,5 +18,7 @@ export const routesWrapper = (controller: Controller) =>{
         validator.handleValidationErrors,
         controller.getOne
     )
+
+    router.get('/', controller.getMany)
     return router
 }
