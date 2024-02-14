@@ -11,4 +11,13 @@ describe('DELETE Gallery', () => {
             assert.respondsWithMethodNotAllowed(response)
         }
     )
+
+    test('Responds with validation errors, status 400: Ivalid assetId', 
+        async() => {
+            const response = await request(app).delete('/gallery/64c9e4f2df7cc0tgd')
+
+            assert.respondsWithBadRequest(response)
+            assert.respondsWithValidationErrors(response)
+        }
+    )
 })
