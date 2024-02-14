@@ -19,6 +19,12 @@ export const badData = {
     exterior1: 4354354
 }
 
+export const patchData = {
+    exterior2: 'https://unsplash.com/s/photos/apartment-building',
+    exterior3: 'https://unsplash.com/s/photos/apartment-building',
+    exterior4: 'https://unsplash.com/s/photos/apartment-building',
+}
+
 export const galleryProperties = [
     'assetId',
     'interior1',
