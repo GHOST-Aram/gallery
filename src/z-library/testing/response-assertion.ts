@@ -5,7 +5,7 @@ export class ResponseAssertion{
 
     public respondsWithMethodNotAllowed = (response: Response) =>{
         expect(response.status).toEqual(405)
-        expect(response.body.message).toMatch(/not allowed/i)
+        expect(response.body).toMatch(/not allowed/i)
         expect(response.headers['content-type']).toMatch(/json/i)
     }
 
