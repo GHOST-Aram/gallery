@@ -27,6 +27,12 @@ export class DataAccess extends GenericDataAccess<GalleryModel, Gallery>{
     public findWithPagination = jest.fn(async(paginator: Paginator): Promise<HydratedGalleryDoc[]> =>{
         return generateFakeDocs(paginator.limit)
     })
+
+    public findByAssetIdAndUpdate = jest.fn(async(assetId: string, updateDoc: Gallery): Promise<HydratedGalleryDoc | null> =>{
+        if(assetId === '64c9e4f2df7cc072af2ac9e4' )
+            return new Gallery(postData)
+        return null
+    })
 }
 
 const generateFakeDocs = (limit: number): HydratedGalleryDoc[] =>{
