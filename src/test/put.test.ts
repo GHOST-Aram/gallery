@@ -33,4 +33,13 @@ describe('Gallery PUT Requests', () => {
             assert.respondsWithValidationErrors(response)
         }
     )
+
+    test('Responds with created resource, status 201: New document created.',
+        async() =>{
+            const response = await request(app).put('/gallery/64c9e4f2df7cc072af2ac9e2')
+                .send(postData)
+
+            assert.respondsWithCreatedResource(response)
+        }
+    )
 })
