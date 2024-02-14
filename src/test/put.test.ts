@@ -1,7 +1,7 @@
 import { describe, test } from "@jest/globals";
 import request from "supertest"
 import { app } from "./config/test.config";
-import { postData } from "./mocks/raw-data";
+import { postData, badData } from "./mocks/raw-data";
 import { assert } from "../z-library/testing/response-assertion";
 
 describe('Gallery PUT Requests', () => {
@@ -18,6 +18,16 @@ describe('Gallery PUT Requests', () => {
         async() => {
             const response = await request(app).put('/gallery/64c9e4f2df7cc0tgd')
                 .send(postData)
+
+            assert.respondsWithBadRequest(response)
+            assert.respondsWithValidationErrors(response)
+        }
+    )
+
+    test('Responds with validation errors, status 400: Invalid input data.', 
+        async() =>{
+            const response = await request(app).put('/gallery/64c9e4f2df7cc072af2ac9e4')
+                .send(badData)
 
             assert.respondsWithBadRequest(response)
             assert.respondsWithValidationErrors(response)
