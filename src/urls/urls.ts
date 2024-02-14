@@ -28,6 +28,9 @@ export const routesWrapper = (controller: Controller) =>{
     )
 
     router.patch('/', controller.respondWithMethodNotAllowed)
+    router.patch('/:assetId', validator.validateReferenceId('assetId', { required: true}),
+        validator.handleValidationErrors,
+    )
 
     return router
 }
