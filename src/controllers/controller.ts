@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express-serve-static-core";
+import { NextFunction, Request, Response } from "express";
 import { DataAccess } from "../data-access/data-access";
 import { GenericController } from "../z-library/bases/generic-controller";
 import { Gallery } from "../data-access/model";
